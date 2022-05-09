@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-export const RotationContainer = styled.div`
+interface Roulette {
+  startSpinningTime: number;
+  continueSpinningTime: number;
+  stopSpinningTime: number;
+  startRotationDegrees: number;
+  finalRotationDegrees: number;
+}
+
+export const RotationContainer = styled.div<Roulette>`
   position: absolute;
   width: 100%;
   left: 0px;

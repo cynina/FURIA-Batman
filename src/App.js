@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Wheel } from "./components/Roulette";
 import { makeStyles, Modal } from "@material-ui/core";
 import { getRandomInt } from "./utils";
@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   paper: {
     position: "absolute",
@@ -17,21 +17,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 30,
     textAlign: "center",
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(2, 4, 3)
+    padding: theme.spacing(2, 4, 3),
   },
   wheelContainer: {
-    width: "20em",
-    height: "20em",
-    margin: "0 auto",
-    marginTop: "5em",
-    position: "relative"
+    width: "45em",
+    height: "45em",
+    position: "fixed",
+    top: "10%",
+    left: "26%",
   },
   button: {
     margin: "3em auto",
     display: "block",
     width: "10rem",
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+  },
 }));
 
 export default function App() {
@@ -39,6 +39,7 @@ export default function App() {
   const [couponNum, setCouponNum] = useState(1);
   const [mustSpin, setMustSpin] = useState(false);
   const [open, setOpen] = useState(false);
+  const [spinning, setSpinning] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -49,43 +50,38 @@ export default function App() {
   };
 
   const mockData = {
-    1: "Intenta nuevamente",
-    2: "Ganaste",
-    3: "Intenta nuevamente",
-    4: "Ganaste",
-    5: "Intenta nuevamente",
-    6: "Ganaste",
-    7: "Intenta nuevamente",
-    8: "Ganaste"
+    1: "Scarf",
+    2: "T-Shirt",
+    3: "Scarf",
+    4: "Sweatshirt",
+    5: "Scarf",
+    6: "Cap",
   };
 
   const onClick = () => {
-    const newCouponNum = getRandomInt(1, 8);
-    setCouponNum(newCouponNum);
-    console.log(newCouponNum);
-    console.log(couponNum);
-    setMustSpin(true);
+    if (!spinning) {
+      setSpinning(true);
+      const newCouponNum = getRandomInt(1, 6);
+      setCouponNum(newCouponNum);
+      console.log(newCouponNum);
+      setMustSpin(true);
+    }
   };
 
   return (
     <div className="App">
-      <h1>Ruleta</h1>
       <div className={classes.wheelContainer}>
         <Wheel
           mustStartSpinning={mustSpin}
           prizeNumber={couponNum}
+          onClick={() => onClick()}
           onStopSpinning={() => {
+            setSpinning(false);
             setMustSpin(false);
             handleOpen();
           }}
         />
       </div>
-      <img
-        src="https://github.com/weibenfalk/wheel-of-fortune-part2/blob/main/vanilla-js-wheel-of-fortune-part2-FINISHED/button.png?raw=true"
-        className={classes.button}
-        alt="button"
-        onClick={() => onClick()}
-      />
       <Modal open={open} onClose={handleClose} className={classes.modal}>
         <div className={classes.paper}>
           <p>{mockData[couponNum]}</p>

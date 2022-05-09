@@ -10,7 +10,8 @@ const STOP_SPINNING_TIME = 4000;
 export const Wheel = ({
   mustStartSpinning,
   prizeNumber,
-  onStopSpinning = () => null
+  onClick = () => null,
+  onStopSpinning = () => null,
 }) => {
   const [startRotationDegrees, setStartRotationDegrees] = useState(0);
   const [finalRotationDegrees, setFinalRotationDegrees] = useState(0);
@@ -37,7 +38,7 @@ export const Wheel = ({
     if (mustStartSpinning && !isCurrentlySpinning) {
       setIsCurrentlySpinning(true);
       startSpinning();
-      const finalRotationDegreesCalculated = getRotationDegrees(prizeNumber, 8);
+      const finalRotationDegreesCalculated = getRotationDegrees(prizeNumber, 6);
       setFinalRotationDegrees(finalRotationDegreesCalculated);
     }
   }, [mustStartSpinning]);
@@ -73,7 +74,7 @@ export const Wheel = ({
             position: "relative",
             width: "100%",
             height: "100%",
-            margin: "0 auto"
+            margin: "0 auto",
             //transform: `rotate(22.5deg)`
           }}
         />
@@ -84,9 +85,23 @@ export const Wheel = ({
         style={{
           position: "absolute",
           width: "3em",
-          left: "8.5em",
+          left: "20em",
           top: "-1em",
-          zIndex: 2
+          zIndex: 2,
+        }}
+      />
+      <img
+        src="assets/button.png"
+        alt="button"
+        onClick={() => onClick()}
+        style={{
+          cursor: "pointer",
+          position: "absolute",
+          height: "10em",
+          width: "10em",
+          left: "16.5em",
+          top: "18.5em",
+          zIndex: 3,
         }}
       />
     </>

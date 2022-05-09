@@ -11,7 +11,7 @@ export const getRotationDegrees = (
     : prizeRotation;
 };
 
-export const getRandomInt = (min, max) => {
+export const getRandomInt = (min: any, max: any) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
