@@ -91,7 +91,7 @@ export const Wheel = ({
         }}
       />
       <img
-        src="assets/button.png"
+        src="assets/button.gif"
         alt="button"
         onClick={() => onClick()}
         style={{
@@ -99,8 +99,9 @@ export const Wheel = ({
           position: "absolute",
           height: "10em",
           width: "10em",
-          left: "16.5em",
-          top: "18.5em",
+          filter: "drop-shadow(-10px 30px 5px #000000CC)",
+          left: "17.5em",
+          top: "17.5em",
           zIndex: 3,
         }}
       />

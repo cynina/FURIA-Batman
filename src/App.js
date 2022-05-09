@@ -1,8 +1,11 @@
 import "./styles.css";
 import { useState } from "react";
 import { Wheel } from "./components/Roulette";
+import Grow from "@mui/material/Grow";
 import { makeStyles, Modal } from "@material-ui/core";
 import { getRandomInt } from "./utils";
+import Prize from "./assets/prize.png";
+import Prize2 from "./assets/prize.gif";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -11,13 +14,27 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
+    backgroundImage: `url(${Prize})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    height: "80%",
+    width: "100%",
+    outline: "none",
     position: "absolute",
-    width: "70%",
-    border: "2px solid #000",
-    fontSize: 30,
+  },
+  paper2: {
+    backgroundImage: `url(${Prize2})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    fontSize: 160,
     textAlign: "center",
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(2, 4, 3),
+    color: "white",
+    height: "100%",
+    width: "100%",
+    outline: "none",
+    position: "absolute",
   },
   wheelContainer: {
     width: "45em",
@@ -31,6 +48,14 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "10rem",
     cursor: "pointer",
+  },
+  prize: {
+    margin: 0,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    textShadow: "1px 1px 10px #ffffffcc, 1px 1px 10px #ccc",
   },
 }));
 
@@ -50,18 +75,32 @@ export default function App() {
   };
 
   const mockData = {
-    1: "Scarf",
-    2: "T-Shirt",
-    3: "Scarf",
-    4: "Sweatshirt",
-    5: "Scarf",
-    6: "Cap",
+    1: "$50 GIFT CARD",
+    2: "SCARF",
+    3: "SCARF",
+    4: "SCARF",
+    5: "SCARF",
+    6: "SCARF",
+    7: "SCARF",
+    8: "SCARF",
+    9: "SCARF",
+    10: "SCARF",
+    11: "SCARF",
+    12: "SCARF",
+    13: "SCARF",
+    14: "SCARF",
+    15: "SCARF",
+    16: "SCARF",
+    17: "SCARF",
+    18: "SCARF",
+    19: "SCARF",
+    20: "SCARF",
   };
 
   const onClick = () => {
     if (!spinning) {
       setSpinning(true);
-      const newCouponNum = getRandomInt(1, 6);
+      const newCouponNum = getRandomInt(1, 20);
       setCouponNum(newCouponNum);
       console.log(newCouponNum);
       setMustSpin(true);
@@ -83,9 +122,13 @@ export default function App() {
         />
       </div>
       <Modal open={open} onClose={handleClose} className={classes.modal}>
-        <div className={classes.paper}>
-          <p>{mockData[couponNum]}</p>
-        </div>
+        <Grow in={open}>
+          <div className={classes.paper}>
+            <div className={classes.paper2}>
+              <p className={classes.prize}>{mockData[couponNum]}</p>
+            </div>
+          </div>
+        </Grow>
       </Modal>
     </div>
   );

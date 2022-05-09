@@ -1,4 +1,12 @@
+@font-face {
+  font-family: "Rb2.1B";
+  src: local("Rb2.1b"),
+    url("./fonts/rene_bieder_-_rbno2.1b-black-webfont.woff2") format("woff2");
+  font-weight: bold;
+}
+
 body {
+  font-family: "Rb2.1b";
   background-image: url("./assets/bg.gif");
   background-repeat: no-repeat;
   background-attachment: fixed;
