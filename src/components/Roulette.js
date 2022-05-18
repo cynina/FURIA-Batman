@@ -38,7 +38,10 @@ export const Wheel = ({
     if (mustStartSpinning && !isCurrentlySpinning) {
       setIsCurrentlySpinning(true);
       startSpinning();
-      const finalRotationDegreesCalculated = getRotationDegrees(prizeNumber, 6);
+      const finalRotationDegreesCalculated = getRotationDegrees(
+        prizeNumber,
+        20
+      );
       setFinalRotationDegrees(finalRotationDegreesCalculated);
     }
   }, [mustStartSpinning]);
@@ -84,9 +87,10 @@ export const Wheel = ({
         alt="marker"
         style={{
           position: "absolute",
-          width: "3em",
-          left: "20em",
-          top: "-1em",
+          width: "6em",
+          filter: "drop-shadow(-10px 30px 5px #000000CC)",
+          left: "19.5em",
+          top: "-3em",
           zIndex: 2,
         }}
       />
