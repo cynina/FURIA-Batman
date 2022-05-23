@@ -4,17 +4,17 @@ import { Wheel } from "./components/Roulette";
 import Grow from "@mui/material/Grow";
 import { makeStyles, Modal } from "@material-ui/core";
 import { getRandomInt } from "./utils";
-import Prize from "./assets/prize.png";
-import Prize2 from "./assets/prize.gif";
+import BGPrize from "./assets/bg_prize.png";
+import PrizeFrame from "./assets/prize_frame.gif";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   modal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   paper: {
-    backgroundImage: `url(${Prize})`,
+    backgroundImage: `url(${BGPrize})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
   },
   paper2: {
-    backgroundImage: `url(${Prize2})`,
+    backgroundImage: `url(${PrizeFrame})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -76,21 +76,21 @@ export default function App() {
 
   const mockData = {
     1: "$50 GIFT CARD",
-    2: "SCARF",
+    2: "NICE TRY!",
     3: "SCARF",
     4: "SCARF",
     5: "SCARF",
     6: "SCARF",
     7: "SCARF",
-    8: "SCARF",
+    8: "NICE TRY!",
     9: "SCARF",
-    10: "SCARF",
+    10: "NICE TRY!",
     11: "SCARF",
     12: "SCARF",
     13: "SCARF",
-    14: "SCARF",
+    14: "NICE TRY!",
     15: "SCARF",
-    16: "SCARF",
+    16: "NICE TRY!",
     17: "SCARF",
     18: "SCARF",
     19: "SCARF",

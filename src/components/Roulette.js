@@ -78,7 +78,6 @@ export const Wheel = ({
             width: "100%",
             height: "100%",
             margin: "0 auto",
-            //transform: `rotate(22.5deg)`
           }}
         />
       </RotationContainer>
