@@ -121,7 +121,12 @@ export default function App() {
           }}
         />
       </div>
-      <Modal open={open} onClose={handleClose} className={classes.modal}>
+      <Modal
+        keepMounted
+        open={open}
+        onClose={handleClose}
+        className={classes.modal}
+      >
         <Grow in={open}>
           <div className={classes.paper}>
             <div className={classes.paper2}>
