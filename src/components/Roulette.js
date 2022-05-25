@@ -85,11 +85,11 @@ export const Wheel = ({
         src="assets/marker.png"
         alt="marker"
         style={{
-          position: "absolute",
-          width: "6em",
+          position: "relative",
+          width: "13%",
           filter: "drop-shadow(-10px 30px 5px #000000CC)",
-          left: "19.5em",
-          top: "-3em",
+          left: "11%",
+          top: "-15.5%",
           zIndex: 2,
         }}
       />
@@ -99,12 +99,13 @@ export const Wheel = ({
         onClick={() => onClick()}
         style={{
           cursor: "pointer",
-          position: "absolute",
-          height: "10em",
-          width: "10em",
+          position: "relative",
+          width: "22%",
+          height: "22%",
+          left: "-6.5%",
+          top: "39%",
+          margin: "0 auto",
           filter: "drop-shadow(-10px 30px 5px #000000CC)",
-          left: "17.5em",
-          top: "17.5em",
           zIndex: 3,
         }}
       />

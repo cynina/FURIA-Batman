@@ -5,10 +5,18 @@
   font-weight: bold;
 }
 
-body {
+body,
+html {
+  width: 100vw;
   font-family: "Rb2.1b";
+  overflow: hidden;
+
+  /* The image used */
   background-image: url("./assets/bg.gif");
+
+  /* Center and scale the image nicely */
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
+  background-attachment: fixed;
 }
